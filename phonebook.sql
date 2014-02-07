@@ -33,7 +33,7 @@ SELECT * FROM address,person WHERE address=address.address_id;
 SELECT first_name,last_name,phone_number FROM address,person,tel_number WHERE address=address.address_id AND  person=person_id AND city='Kiev';
 SELECT COUNT(*) FROM person;
 
-.exit
+
 
 
 
