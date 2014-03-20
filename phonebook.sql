@@ -33,8 +33,10 @@ SELECT * FROM address,person WHERE address=address.address_id;
 SELECT first_name,last_name,phone_number FROM address,person,tel_number WHERE address=address.address_id AND  person=person_id AND city='Kiev';
 SELECT COUNT(*) FROM person;
 
+ select first_name from person,(select person,count(phone_number) as n from tel_number group by person) where person=person_id and n>1 ;
 
-
+create view tel_count as select person,count(phone_number) as n from tel_number group by person;
+ select * from person,tel_count,tel_number where tel_count.person=person.person_id and n>1 ;
 
 
 
